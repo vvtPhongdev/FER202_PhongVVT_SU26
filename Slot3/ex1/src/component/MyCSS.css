@@ -1,0 +1,13 @@
+.hello-container {
+  text-align: center;
+}
+
+.hello-text {
+  color: black;
+  font-size: 36px;
+}
+
+.react-text {
+  color: blue;
+  font-weight: bold;
+}
