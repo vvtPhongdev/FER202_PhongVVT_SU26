@@ -1,5 +1,4 @@
-// src/pages/About.jsx
-import { Container, Card, Row, Col, Badge } from 'react-bootstrap';
+import { Container, Card, Badge } from 'react-bootstrap';
 
 function About() {
   const techs = [

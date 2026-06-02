@@ -1,0 +1,10 @@
+/* CSS cho trang đăng ký và các component liên quan */
+
+.register-container-row {
+  min-height: 75vh;
+}
+
+.modal-success-icon {
+  font-size: 3rem;
+  color: #198754;
+}

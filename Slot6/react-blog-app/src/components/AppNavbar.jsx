@@ -1,5 +1,5 @@
 // src/components/AppNavbar.jsx
-import { Navbar, Nav, Container, Badge } from 'react-bootstrap';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 function AppNavbar() {
@@ -7,7 +7,7 @@ function AppNavbar() {
     <Navbar bg="primary" variant="dark" expand="md" sticky="top">
       <Container>
         {/* Logo / Brand */}
-        <Navbar.Brand as={NavLink} to='/'>
+        <Navbar.Brand as={NavLink} to='/home'>
           📝 React Blog
         </Navbar.Brand>
 
@@ -15,9 +15,10 @@ function AppNavbar() {
         <Navbar.Collapse id="main-nav">
           <Nav className='ms-auto'>
             {/* as={NavLink} → tự thêm class 'active' khi URL khớp */}
-            <Nav.Link as={NavLink} to='/'      end>🏠 Trang chủ</Nav.Link>
-            <Nav.Link as={NavLink} to='/posts'    >📚 Bài viết</Nav.Link>
-            <Nav.Link as={NavLink} to='/about'    >ℹ️ Giới thiệu</Nav.Link>
+            <Nav.Link as={NavLink} to='/home'  >🏠 Trang chủ</Nav.Link>
+            <Nav.Link as={NavLink} to='/posts' >📚 Bài viết</Nav.Link>
+            <Nav.Link as={NavLink} to='/about' >ℹ️ Giới thiệu</Nav.Link>
+            <Nav.Link as={NavLink} to='/'   end>📝 Đăng ký</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
