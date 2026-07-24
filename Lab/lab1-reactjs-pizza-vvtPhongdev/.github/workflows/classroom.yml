@@ -1,0 +1,115 @@
+name: GitHub Classroom Autograding
+
+on:
+  push:
+    branches: ['**']
+  workflow_dispatch:
+  repository_dispatch:
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+
+    env:
+      CI: true                      # react-scripts test → non-interactive, thoát sau khi chạy xong
+      DISABLE_ESLINT_PLUGIN: true   # Tắt ESLint trong CI để tăng tốc
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # Dùng npm install thay vì npm ci vì template chưa có package-lock.json.
+      # .npmrc đã cấu hình legacy-peer-deps=true để tránh conflict react-scripts 5 + npm 7+
+      - name: Install dependencies
+        run: npm install
+
+      # ─── Test 1: NavBar (1 điểm) ───────────────────────────────────────────
+      - name: "NavBar component (1đ)"
+        id: navbar
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: NavBar component
+          setup-command: ''
+          command: npx react-scripts test --watchAll=false --forceExit --testPathPattern="src/tests/NavBar.test"
+          timeout: 5
+          max-score: 1
+
+      # ─── Test 2: BannerCarousel (2 điểm) ──────────────────────────────────
+      - name: "BannerCarousel component (2đ)"
+        id: carousel
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: BannerCarousel component
+          setup-command: ''
+          command: npx react-scripts test --watchAll=false --forceExit --testPathPattern="src/tests/BannerCarousel.test"
+          timeout: 5
+          max-score: 2
+
+      # ─── Test 3: PizzaCard (2 điểm) ───────────────────────────────────────
+      - name: "PizzaCard component (2đ)"
+        id: pizzacard
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: PizzaCard component
+          setup-command: ''
+          command: npx react-scripts test --watchAll=false --forceExit --testPathPattern="src/tests/PizzaCard.test"
+          timeout: 5
+          max-score: 2
+
+      # ─── Test 4: PizzaDetailModal (2 điểm) ────────────────────────────────
+      - name: "PizzaDetailModal component (2đ)"
+        id: pizzamodal
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: PizzaDetailModal component
+          setup-command: ''
+          command: npx react-scripts test --watchAll=false --forceExit --testPathPattern="src/tests/PizzaDetailModal.test"
+          timeout: 5
+          max-score: 2
+
+      # ─── Test 5: Pizzas (2 điểm) ──────────────────────────────────────────
+      - name: "Pizzas component (2đ)"
+        id: pizzas
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: Pizzas component
+          setup-command: ''
+          command: npx react-scripts test --watchAll=false --forceExit --testPathPattern="src/tests/Pizzas.test"
+          timeout: 5
+          max-score: 2
+
+      # ─── Test 6: App integration (1 điểm) ─────────────────────────────────
+      - name: "App integration (1đ)"
+        id: app
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: App integration
+          setup-command: ''
+          command: npx react-scripts test --watchAll=false --forceExit --testPathPattern="src/tests/App.test"
+          timeout: 5
+          max-score: 1
+
+      # ─── Reporter: tổng hợp điểm hiển thị trong tab Actions ───────────────
+      - name: Autograding Reporter
+        uses: classroom-resources/autograding-grading-reporter@v1
+        env:
+          NAVBAR_RESULTS: "${{steps.navbar.outputs.result}}"
+          CAROUSEL_RESULTS: "${{steps.carousel.outputs.result}}"
+          PIZZACARD_RESULTS: "${{steps.pizzacard.outputs.result}}"
+          PIZZAMODAL_RESULTS: "${{steps.pizzamodal.outputs.result}}"
+          PIZZAS_RESULTS: "${{steps.pizzas.outputs.result}}"
+          APP_RESULTS: "${{steps.app.outputs.result}}"
+        with:
+          runners: navbar,carousel,pizzacard,pizzamodal,pizzas,app

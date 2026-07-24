@@ -1,0 +1,64 @@
+{
+  "tests": [
+    {
+      "name": "NavBar component",
+      "setup": "npm install",
+      "run": "CI=true npx react-scripts test --watchAll=false --forceExit --testPathPattern=\"src/tests/NavBar.test\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "BannerCarousel component",
+      "setup": "",
+      "run": "CI=true npx react-scripts test --watchAll=false --forceExit --testPathPattern=\"src/tests/BannerCarousel.test\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 2
+    },
+    {
+      "name": "PizzaCard component",
+      "setup": "",
+      "run": "CI=true npx react-scripts test --watchAll=false --forceExit --testPathPattern=\"src/tests/PizzaCard.test\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 2
+    },
+    {
+      "name": "PizzaDetailModal component",
+      "setup": "",
+      "run": "CI=true npx react-scripts test --watchAll=false --forceExit --testPathPattern=\"src/tests/PizzaDetailModal.test\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 2
+    },
+    {
+      "name": "Pizzas component",
+      "setup": "",
+      "run": "CI=true npx react-scripts test --watchAll=false --forceExit --testPathPattern=\"src/tests/Pizzas.test\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 2
+    },
+    {
+      "name": "App integration",
+      "setup": "",
+      "run": "CI=true npx react-scripts test --watchAll=false --forceExit --testPathPattern=\"src/tests/App.test\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    }
+  ]
+}
