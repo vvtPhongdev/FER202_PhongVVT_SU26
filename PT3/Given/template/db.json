@@ -1,0 +1,52 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin123",
+      "role": "Admin",
+      "fullName": "Rental Manager",
+      "email": "admin@carrental.com"
+    },
+    {
+      "id": "2",
+      "username": "user1",
+      "password": "user123",
+      "role": "User",
+      "fullName": "Nguyen Van A",
+      "email": "user1@carrental.com"
+    },
+    {
+      "id": "3",
+      "username": "agent",
+      "password": "agent123",
+      "role": "User",
+      "fullName": "Tran Thi B",
+      "email": "agent@carrental.com"
+    }
+  ],
+  "carTypes": [
+    { "id": "1", "name": "Economy" },
+    { "id": "2", "name": "SUV" },
+    { "id": "3", "name": "Luxury" }
+  ],
+  "cars": [
+    { "id": "1", "name": "Toyota Vios", "carTypeId": 1, "seats": "5", "transmission": "Automatic", "priceWeekday": 500000, "priceWeekend": 700000, "lastServiced": "15/03/2022" },
+    { "id": "2", "name": "Honda City", "carTypeId": 1, "seats": "5", "transmission": "Automatic", "priceWeekday": 520000, "priceWeekend": 720000, "lastServiced": "20/06/2023" },
+    { "id": "3", "name": "Kia Morning", "carTypeId": 1, "seats": "4", "transmission": "Manual", "priceWeekday": 450000, "priceWeekend": 650000, "lastServiced": "10/01/2024" },
+    { "id": "4", "name": "Hyundai Accent", "carTypeId": 1, "seats": "5", "transmission": "Automatic", "priceWeekday": 500000, "priceWeekend": 700000, "lastServiced": "05/08/2023" },
+    { "id": "5", "name": "Mazda 2", "carTypeId": 1, "seats": "5", "transmission": "Manual", "priceWeekday": 480000, "priceWeekend": 680000, "lastServiced": "12/12/2023" },
+
+    { "id": "6", "name": "Mazda CX-5", "carTypeId": 2, "seats": "5", "transmission": "Automatic", "priceWeekday": 900000, "priceWeekend": 1200000, "lastServiced": "01/03/2024" },
+    { "id": "7", "name": "Hyundai Tucson", "carTypeId": 2, "seats": "5", "transmission": "Automatic", "priceWeekday": 950000, "priceWeekend": 1250000, "lastServiced": "15/05/2024" },
+    { "id": "8", "name": "Honda CR-V", "carTypeId": 2, "seats": "5", "transmission": "Automatic", "priceWeekday": 1000000, "priceWeekend": 1300000, "lastServiced": "20/07/2024" },
+    { "id": "9", "name": "Toyota Fortuner", "carTypeId": 2, "seats": "7", "transmission": "Automatic", "priceWeekday": 1100000, "priceWeekend": 1450000, "lastServiced": "10/01/2024" },
+    { "id": "10", "name": "Ford Everest", "carTypeId": 2, "seats": "7", "transmission": "Manual", "priceWeekday": 1050000, "priceWeekend": 1400000, "lastServiced": "05/08/2023" },
+
+    { "id": "11", "name": "Mercedes C-Class", "carTypeId": 3, "seats": "5", "transmission": "Automatic", "priceWeekday": 2000000, "priceWeekend": 2800000, "lastServiced": "01/03/2024" },
+    { "id": "12", "name": "BMW 5 Series", "carTypeId": 3, "seats": "5", "transmission": "Automatic", "priceWeekday": 2200000, "priceWeekend": 3000000, "lastServiced": "15/05/2024" },
+    { "id": "13", "name": "Audi A6", "carTypeId": 3, "seats": "5", "transmission": "Automatic", "priceWeekday": 2100000, "priceWeekend": 2900000, "lastServiced": "20/07/2024" },
+    { "id": "14", "name": "Lexus ES", "carTypeId": 3, "seats": "5", "transmission": "Automatic", "priceWeekday": 2300000, "priceWeekend": 3100000, "lastServiced": "10/01/2024" },
+    { "id": "15", "name": "Mercedes E-Class", "carTypeId": 3, "seats": "5", "transmission": "Automatic", "priceWeekday": 2500000, "priceWeekend": 3300000, "lastServiced": "05/08/2023" }
+  ]
+}

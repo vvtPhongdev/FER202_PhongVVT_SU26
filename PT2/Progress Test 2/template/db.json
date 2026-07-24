@@ -1,0 +1,138 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin123",
+      "role": "Admin",
+      "fullName": "Administrator"
+    },
+    {
+      "id": "2",
+      "username": "user1",
+      "password": "user123",
+      "role": "User",
+      "fullName": "Nguyen Van A"
+    },
+    {
+      "id": "3",
+      "username": "manager",
+      "password": "mgr123",
+      "role": "User",
+      "fullName": "Tran Thi B"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Casual",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "name": "FastFood"
+    },
+    {
+      "id": "3",
+      "name": "Fine Dining"
+    },
+    {
+      "id": "4",
+      "name": "Buffet"
+    },
+    {
+      "name": "Pizza",
+      "id": "5"
+    },
+    {
+      "id": "6",
+      "name": "Seafood"
+    },
+    {
+      "name": "ABC",
+      "id": "suOxYQ2fHG4"
+    }
+  ],
+  "restaurants": [
+    {
+      "id": "1",
+      "name": "BBQ Restaurant",
+      "categoryId": 1,
+      "owner": "Hoang",
+      "address": "Hang Bai",
+      "priceMin": 50000,
+      "priceMax": 200000,
+      "openDate": "15/03/2018"
+    },
+    {
+      "id": "2",
+      "name": "Pho 24",
+      "categoryId": 2,
+      "owner": "Minh",
+      "address": "Hoan Kiem",
+      "priceMin": 50000,
+      "priceMax": 100000,
+      "openDate": "01/01/2020"
+    },
+    {
+      "id": "3",
+      "name": "The Steakhouse",
+      "categoryId": 3,
+      "owner": "Lan",
+      "address": "Ba Dinh",
+      "priceMin": 300000,
+      "priceMax": 1000000,
+      "openDate": "20/07/2019"
+    },
+    {
+      "id": "4",
+      "name": "Pizza Hut HN",
+      "categoryId": 2,
+      "owner": "Tuan",
+      "address": "Cau Giay",
+      "priceMin": 80000,
+      "priceMax": 250000,
+      "openDate": "10/11/2021"
+    },
+    {
+      "id": "5",
+      "name": "Bun Bo Hue Ngon",
+      "categoryId": 1,
+      "owner": "Nga",
+      "address": "Dong Da",
+      "priceMin": 30000,
+      "priceMax": 60000,
+      "openDate": "05/06/2017"
+    },
+    {
+      "id": "6",
+      "name": "Sushi Sasa",
+      "categoryId": 3,
+      "owner": "Duc",
+      "address": "Tay Ho",
+      "priceMin": 200000,
+      "priceMax": 800000,
+      "openDate": "14/02/2022"
+    },
+    {
+      "id": "7",
+      "name": "Banh Mi 25",
+      "categoryId": 2,
+      "owner": "Thu",
+      "address": "Hoan Kiem",
+      "priceMin": 25000,
+      "priceMax": 45000,
+      "openDate": "25/12/2023"
+    },
+    {
+      "id": "6gcYUqZHeYo",
+      "name": "Anh EM Mân Thái lỏ",
+      "categoryId": 1,
+      "owner": "Nam Mân Thái",
+      "address": "146 Vũ Tông Khang, Mân Thái ,Sơn Trà Đà Nẵng",
+      "priceMin": 50000,
+      "priceMax": 500000000000,
+      "openDate": "30/06/2026"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

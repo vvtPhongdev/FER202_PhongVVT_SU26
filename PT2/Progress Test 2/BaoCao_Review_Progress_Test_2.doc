@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Báo cáo Review Progress Test 2</title>
+<style>
+  body { font-family: 'Calibri', 'Arial', 'Segoe UI', sans-serif; color: #333333; line-height: 1.6; font-size: 11pt; }
+  h1 { color: #1f4e78; border-bottom: 2px solid #2e75b6; padding-bottom: 5px; font-size: 20pt; margin-top: 30px; }
+  h2 { color: #2e75b6; font-size: 15pt; margin-top: 25px; border-bottom: 1px solid #dee2e6; padding-bottom: 3px; }
+  h3 { color: #41719c; font-size: 12pt; margin-top: 20px; }
+  p, li { font-size: 11pt; }
+  table { border-collapse: collapse; width: 100%; margin: 15px 0; font-size: 10pt; }
+  th { background-color: #2e75b6; color: white; border: 1px solid #bfbfbf; padding: 8px; text-align: left; font-weight: bold; }
+  td { border: 1px solid #bfbfbf; padding: 8px; vertical-align: top; }
+  tr:nth-child(even) { background-color: #f9fbfd; }
+  code { font-family: 'Consolas', 'Courier New', monospace; background-color: #f2f2f2; padding: 2px 4px; border-radius: 3px; font-size: 10pt; color: #a31515; }
+  pre { font-family: 'Consolas', 'Courier New', monospace; background-color: #f8f9fa; padding: 12px; border: 1px solid #d3d3d3; border-radius: 4px; white-space: pre-wrap; font-size: 9.5pt; color: #000000; margin: 10px 0; }
+  .checklist { list-style-type: none; padding-left: 0; }
+  .checklist-item { margin-bottom: 6px; }
+  .checkbox { font-family: 'Courier New', monospace; font-weight: bold; font-size: 12pt; margin-right: 8px; color: #2e75b6; }
+  .info-box { background-color: #f2f7fa; border-left: 4px solid #2e75b6; padding: 12px; margin: 15px 0; }
+  .screenshot-placeholder { background-color: #fff2cc; border: 2px dashed #d6b656; padding: 20px; text-align: center; color: #7f6000; font-weight: bold; margin: 15px 0; border-radius: 4px; }
+  .code-keyword { color: #0000ff; font-weight: bold; }
+  .code-string { color: #a31515; }
+  .code-comment { color: #008000; }
+</style>
+</head>
+<body>
+
+<div style="text-align: center; margin-bottom: 40px;">
+  <h2 style="color: #1f4e78; font-size: 24pt; margin-bottom: 5px;">BÁO CÁO REVIEW CHỨC NĂNG & MÃ NGUỒN</h2>
+  <h3 style="color: #2e75b6; font-size: 16pt; margin-top: 0; margin-bottom: 25px;">DỰ ÁN: RESTAURANT MANAGEMENT APP (PROGRESS TEST 2)</h3>
+  <p style="font-size: 12pt; font-style: italic; color: #555;">Môn học: FER202 — Lập trình Front-End với ReactJS (Kỳ SU26)</p>
+  
+  <table style="width: 60%; margin: 30px auto; font-size: 11pt; border: none;">
+    <tr>
+      <td style="width: 40%; font-weight: bold; border: none; padding: 5px;">Họ và tên sinh viên:</td>
+      <td style="border: none; padding: 5px; text-align: left;">Võ Văn Thanh Phong</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold; border: none; padding: 5px;">Mã số sinh viên (MSSV):</td>
+      <td style="border: none; padding: 5px; text-align: left;">DE190421</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold; border: none; padding: 5px;">Lớp học:</td>
+      <td style="border: none; padding: 5px; text-align: left;">FER202_PhongVVT_SU26</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold; border: none; padding: 5px;">Giáo viên hướng dẫn:</td>
+      <td style="border: none; padding: 5px; text-align: left;">[Tên Giảng Viên]</td>
+    </tr>
+  </table>
+</div>
+
+<h1>I. HƯỚNG DẪN CÀI ĐẶT VÀ KHỞI CHẠY DỰ ÁN</h1>
+<div class="info-box">
+  Để tiến hành chạy ứng dụng và kiểm duyệt mã nguồn, hãy mở công cụ Command Prompt / PowerShell hoặc Terminal trong VS Code tại đường dẫn thư mục dự án <code>Progress Test 2/template</code> và thực thi các câu lệnh sau:
+</div>
+
+<h3>1. Cài đặt các thư viện phụ thuộc (Dependencies)</h3>
+<p>Dùng để tải toàn bộ thư viện cần thiết như React, Bootstrap, Axios, Jest, Json-Server về máy local:</p>
+<pre>npm install</pre>
+
+<h3>2. Khởi chạy đồng thời Database và Web Server</h3>
+<p>Lệnh này sử dụng công cụ <code>concurrently</code> để chạy song song hai tiến trình:</p>
+<ul>
+  <li><strong>API Database Mock:</strong> <code>json-server db.json --port 3001</code> (lưu trữ và xử lý API dữ liệu).</li>
+  <li><strong>Vite React Server:</strong> <code>npm run dev</code> (máy chủ giao diện chạy tại cổng <code>http://localhost:5173</code>).</li>
+</ul>
+<pre>npm start</pre>
+<p><strong>Tài khoản đăng nhập kiểm thử (Admin):</strong><br>
+- Username: <code>admin</code><br>
+- Password: <code>admin123</code>
+</p>
+
+<h3>3. Khởi chạy toàn bộ các ca kiểm thử tự động (Unit Tests)</h3>
+<p>Dùng để chạy bộ test tự động viết bằng Jest trong thư mục <code>src/__tests__/</code> nhằm chấm điểm các TODO:</p>
+<pre>npm test</pre>
+
+---
+
+<h1>II. HƯỚNG DẪN CHỤP ẢNH MINH HỌA BÁO CÁO (SCREENSHOTS)</h1>
+<p>Khi làm báo cáo, việc chụp ảnh minh họa rõ ràng, đẹp mắt giúp giám khảo dễ dàng đánh giá bài làm. Hãy thực hiện theo hướng dẫn sau:</p>
+<ol>
+  <li><strong>Phím tắt chụp nhanh:</strong> Nhấn tổ hợp phím <code>Windows + Shift + S</code> trên Windows. Con trỏ chuột sẽ đổi thành dấu thập, hãy kéo thả chuột để khoanh vùng khu vực chức năng cần chụp.</li>
+  <li><strong>Chèn ảnh vào Word:</strong> Mở file báo cáo này bằng Word, di chuyển con trỏ chuột đến các ô <em>"Khu vực dán ảnh chụp màn hình"</em> màu vàng và nhấn <code>Ctrl + V</code> để dán ảnh trực tiếp từ bộ nhớ tạm.</li>
+  <li><strong>Lưu ý chất lượng ảnh:</strong> Hãy phóng to trang trình duyệt và thu nhỏ các khoảng trống không cần thiết để các thông báo lỗi, thông tin người dùng hiển thị to, rõ nét nhất.</li>
+</ol>
+
+---
+
+<h1>III. CHI TIẾT CÁC CHỨC NĂNG (TODOs) & HƯỚNG DẪN KIỂM TRA</h1>
+
+<!-- TODO 01 -->
+<h2>TODO-01 — Alert khi đăng nhập không phải Admin</h2>
+<p><strong>File triển khai:</strong> <code>src/pages/Login.jsx</code> | <strong>Điểm số:</strong> 1.0 điểm</p>
+
+<h3>1. Yêu cầu đề bài</h3>
+<p>Khi đăng nhập thất bại (sai thông tin hoặc vai trò không phải Admin), phải bắt lỗi ném ra từ API và hiển thị thông báo lỗi bằng <code>&lt;Alert variant="danger" dismissible&gt;</code> của React-Bootstrap. Khi mới vào trang không được hiện Alert.</p>
+
+<h3>2. Đoạn mã nguồn (Code)</h3>
+<pre>
+<span class="code-comment">// Trong hàm handleSubmit:</span>
+<span class="code-keyword">try</span> {
+  <span class="code-keyword">const</span> user = <span class="code-keyword">await</span> login(username.trim(), password)
+  dispatch({ type: <span class="code-string">'SET_ERROR'</span>, payload: <span class="code-string">''</span> })
+  loginUser(user)
+  navigate(<span class="code-string">'/'</span>)
+} <span class="code-keyword">catch</span> (err) {
+  <span class="code-comment">// Bắt lỗi và đưa thông điệp lỗi vào reducer state</span>
+  dispatch({ type: <span class="code-string">'SET_ERROR'</span>, payload: err.message })
+}
+</pre>
+
+<h3>3. Checklist kiểm duyệt chức năng</h3>
+<ul class="checklist">
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Vào trang đăng nhập lần đầu tiên: Đảm bảo không hiển thị thông báo lỗi nào.</li>
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Nhập tài khoản không phải Admin (ví dụ: <code>user / user123</code>): Xuất hiện Alert đỏ chứa nội dung "Only Admin accounts are allowed."</li>
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Nhập sai tài khoản/mật khẩu: Xuất hiện Alert đỏ chứa lỗi tương ứng từ API.</li>
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Nhấp vào dấu [x] đóng Alert: Hộp Alert phải biến mất hoàn toàn.</li>
+</ul>
+
+<h3>4. Hướng dẫn chụp hình báo cáo</h3>
+<p><strong>Hình UI:</strong> Mở trình duyệt tại <code>http://localhost:5173/login</code>, nhập username là <code>user</code>, mật khẩu <code>user123</code> và bấm <strong>Login</strong>. Chụp lại giao diện chứa Alert đỏ hiển thị lỗi.<br>
+<strong>Hình Test:</strong> Chạy lệnh <code>npm test -- --testPathPattern="Login"</code> và chụp terminal hiển thị <code>PASS</code>.</p>
+<div class="screenshot-placeholder">[ HÌNH UI: ALERT LỖI ĐĂNG NHẬP KHÔNG PHẢI ADMIN ]</div>
+<div class="screenshot-placeholder">[ HÌNH TEST TERMINAL: LOGIN.TEST.JSX PASS ]</div>
+
+
+<!-- TODO 02, 03, 04 -->
+<h2>TODO-02, 03, 04 — Chức năng trên Thanh điều hướng (AppNavbar)</h2>
+<p><strong>File triển khai:</strong> <code>src/components/AppNavbar.jsx</code> | <strong>Điểm số:</strong> 2.5 điểm</p>
+
+<h3>1. Yêu cầu đề bài</h3>
+<ul>
+  <li><strong>TODO-02 (1.0đ):</strong> Khi đã đăng nhập, hiển thị họ tên người dùng <code>user.fullName</code> (chữ đậm màu trắng) và vai trò <code>user.role</code> dưới dạng <code>&lt;Badge&gt;</code>.</li>
+  <li><strong>TODO-03 (1.0đ):</strong> Khi click nút <strong>Logout</strong>, gọi hàm <code>logoutUser()</code> từ context và chuyển hướng người dùng về trang <code>/login</code>.</li>
+  <li><strong>TODO-04 (0.5đ):</strong> Logo thương hiệu <code>Navbar.Brand</code> hiển thị logo và tên ứng dụng từ <code>about.js</code>, bấm vào điều hướng về trang chủ <code>/</code> (dùng <code>as={Link} to="/"</code>).</li>
+</ul>
+
+<h3>2. Đoạn mã nguồn (Code)</h3>
+<pre>
+<span class="code-comment">// TODO-04: Navbar.Brand dùng Link</span>
+&lt;Navbar.Brand as={Link} to="/"&gt;
+  &lt;img src={about.logo} alt={about.appName} width="30" height="30" className="d-inline-block align-top me-2" /&gt;
+  {about.appName}
+&lt;/Navbar.Brand&gt;
+
+<span class="code-comment">// ...</span>
+
+<span class="code-comment">// TODO-02 &amp; TODO-03: Hiển thị user và nút Logout khi có user đăng nhập</span>
+{user &amp;&amp; (
+  &lt;&gt;
+    &lt;Nav className="me-auto"&gt;
+      &lt;Nav.Link as={Link} to="/"&gt;Home&lt;/Nav.Link&gt;
+      &lt;Nav.Link as={Link} to="/categories"&gt;Manage Categories&lt;/Nav.Link&gt;
+    &lt;/Nav&gt;
+    &lt;Nav className="align-items-center"&gt;
+      &lt;Navbar.Text className="me-3 text-white"&gt;
+        Logged in as &lt;strong&gt;{user.fullName}&lt;/strong&gt;{' '}
+        &lt;Badge bg="info"&gt;{user.role}&lt;/Badge&gt;
+      &lt;/Navbar.Text&gt;
+      &lt;Button variant="outline-light" onClick={handleLogout}&gt;
+        Logout
+      &lt;/Button&gt;
+    &lt;/Nav&gt;
+  &lt;/&gt;
+)}
+</pre>
+
+<h3>3. Checklist kiểm duyệt chức năng</h3>
+<ul class="checklist">
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Đăng nhập thành công với tài khoản Admin: Góc phải Navbar hiển thị "Logged in as Vo Van Thanh Phong" và Badge màu xanh nhạt "Admin".</li>
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Nhấp chuột phải chọn Inspect vào logo/tên app ở góc trái: Mã nguồn HTML hiển thị thẻ <code>&lt;a href="/" class="navbar-brand"&gt;</code>.</li>
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Click thử nút Logout: Trang web chuyển về trang đăng nhập và thông tin user biến mất khỏi Navbar.</li>
+</ul>
+
+<h3>4. Hướng dẫn chụp hình báo cáo</h3>
+<p><strong>Hình UI:</strong> Chụp ảnh góc trên cùng màn hình chứa thanh Navbar hoàn chỉnh sau khi đăng nhập thành công.<br>
+<strong>Hình Test:</strong> Chạy lệnh <code>npm test -- --testPathPattern="AppNavbar"</code> và chụp terminal báo <code>PASS</code>.</p>
+<div class="screenshot-placeholder">[ HÌNH UI: THANH NAVBAR ĐẦY ĐỦ THÔNG TIN USER VÀ LOGOUT ]</div>
+<div class="screenshot-placeholder">[ HÌNH TEST TERMINAL: APPNAVBAR.TEST.JSX PASS ]</div>
+
+
+<!-- TODO 05 -->
+<h2>TODO-05 — Xem chi tiết Nhà hàng &amp; Nút quay lại (RestaurantDetail)</h2>
+<p><strong>File triển khai:</strong> <code>src/pages/RestaurantDetail.jsx</code> | <strong>Điểm số:</strong> 1.0 điểm</p>
+
+<h3>1. Yêu cầu đề bài</h3>
+<p>Trang <code>/restaurants/:id</code> cần lấy ID từ URL, gọi API lấy chi tiết nhà hàng. Hiển thị <code>&lt;Spinner&gt;</code> khi đang tải, hiện Alert đỏ khi có lỗi. Hiển thị thông tin nhà hàng và định dạng giá VND. Có nút Back quay lại trang trước bằng cách gọi <code>navigate(-1)</code>.</p>
+
+<h3>2. Đoạn mã nguồn (Code)</h3>
+<pre>
+<span class="code-comment">// State khởi tạo</span>
+<span class="code-keyword">const</span> [restaurant, setRestaurant] = useState(<span class="code-keyword">null</span>)
+<span class="code-keyword">const</span> [loading, setLoading] = useState(<span class="code-keyword">true</span>)
+<span class="code-keyword">const</span> [error, setError] = useState(<span class="code-keyword">null</span>)
+
+useEffect(() =&gt; {
+  setLoading(<span class="code-keyword">true</span>)
+  setError(<span class="code-keyword">null</span>)
+  fetchRestaurantById(id)
+    .then(setRestaurant)
+    .catch((e) => setError(e.message))
+    .finally(() =&gt; setLoading(<span class="code-keyword">false</span>))
+}, [id])
+
+<span class="code-keyword">if</span> (loading) <span class="code-keyword">return</span> &lt;Spinner animation="border" /&gt;
+<span class="code-keyword">if</span> (error) <span class="code-keyword">return</span> &lt;Alert variant="danger"&gt;{error}&lt;/Alert&gt;
+</pre>
+
+<h3>3. Checklist kiểm duyệt chức năng</h3>
+<ul class="checklist">
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Bấm vào link View của nhà hàng bất kỳ trên trang chủ: Đảm bảo chuyển đến trang chi tiết và có Spinner hiển thị chớp nhoáng.</li>
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Kiểm tra các thông số hiển thị: Category hiển thị đúng tên chứ không phải ID, khoảng giá hiển thị đúng format VND (ví dụ: <code>300.000 ₫</code>).</li>
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Click nút Back ở đầu trang: Giao diện quay trở lại trang chủ.</li>
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Gõ URL id không có thực (như <code>/restaurants/999</code>): Hiện thông báo Alert lỗi màu đỏ.</li>
+</ul>
+
+<h3>4. Hướng dẫn chụp hình báo cáo</h3>
+<p><strong>Hình UI:</strong> Chụp màn hình trang chi tiết của nhà hàng "Ngon Villa" hiển thị đầy đủ thông tin.<br>
+<strong>Hình Test:</strong> Chạy lệnh <code>npm test -- --testPathPattern="RestaurantDetail"</code> và chụp terminal báo <code>PASS</code>.</p>
+<div class="screenshot-placeholder">[ HÌNH UI: TRANG CHI TIẾT NHÀ HÀNG &amp; NÚT BACK ]</div>
+<div class="screenshot-placeholder">[ HÌNH TEST TERMINAL: RESTAURANTDETAIL.TEST.JSX PASS ]</div>
+
+
+<!-- TODO 06 -->
+<h2>TODO-06 — Xóa nhà hàng với hộp thoại xác nhận (RestaurantRow)</h2>
+<p><strong>File triển khai:</strong> <code>src/components/RestaurantRow.jsx</code> | <strong>Điểm số:</strong> 1.0 điểm</p>
+
+<h3>1. Yêu cầu đề bài</h3>
+<p>Mỗi dòng thông tin nhà hàng có liên kết/nút Delete. Khi nhấn vào sẽ hiển thị hộp thoại xác nhận <code>&lt;ModalConfirm&gt;</code> hỏi người dùng có chắc chắn muốn xóa nhà hàng đó không (hiển thị in đậm tên nhà hàng). Nhấn xác nhận thì gọi hàm xóa và đóng modal. Nhấn hủy thì đóng modal.</p>
+
+<h3>2. Đoạn mã nguồn (Code)</h3>
+<pre>
+<span class="code-comment">// State quản lý hiển thị Modal</span>
+<span class="code-keyword">const</span> [showModal, setShowModal] = useState(<span class="code-keyword">false</span>)
+
+<span class="code-comment">// ...</span>
+&lt;a href="#" onClick={(e) =&gt; { e.preventDefault(); setShowModal(<span class="code-keyword">true</span>); }}&gt;Delete&lt;/a&gt;
+
+&lt;ModalConfirm
+  show={showModal}
+  title="Confirm Delete"
+  message={&lt;p&gt;Are you sure you want to delete &lt;strong&gt;{restaurant.name}&lt;/strong&gt;?&lt;/p&gt;}
+  confirmText="Delete"
+  onConfirm={() =&gt; {
+    onDelete(restaurant.id)
+    setShowModal(<span class="code-keyword">false</span>)
+  }}
+  onCancel={() =&gt; setShowModal(<span class="code-keyword">false</span>)}
+/&gt;
+</pre>
+
+<h3>3. Checklist kiểm duyệt chức năng</h3>
+<ul class="checklist">
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Bấm Delete trên một dòng nhà hàng: Hiện modal xác nhận với tên nhà hàng in đậm.</li>
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Bấm Cancel trong Modal: Modal ẩn đi, dòng nhà hàng vẫn hiển thị trên bảng.</li>
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Bấm Delete trong Modal: Modal ẩn đi, dòng nhà hàng lập tức biến mất khỏi trang.</li>
+</ul>
+
+<h3>4. Hướng dẫn chụp hình báo cáo</h3>
+<p><strong>Hình UI:</strong> Nhấn Delete nhà hàng "Hanoi Garden", chụp màn hình trình duyệt hiển thị hộp thoại xác nhận Modal đè lên giao diện chính.<br>
+<strong>Hình Test:</strong> Chạy lệnh <code>npm test -- --testPathPattern="RestaurantRow"</code> và chụp terminal báo <code>PASS</code>.</p>
+<div class="screenshot-placeholder">[ HÌNH UI: MODAL XÁC NHẬN XÓA NHÀ HÀNG ]</div>
+<div class="screenshot-placeholder">[ HÌNH TEST TERMINAL: RESTAURANTROW.TEST.JSX PASS ]</div>
+
+
+<!-- TODO 07 -->
+<h2>TODO-07 — Cột Price Range trong danh sách nhà hàng</h2>
+<p><strong>File triển khai:</strong> <code>src/pages/RestaurantList.jsx</code> + <code>src/components/RestaurantRow.jsx</code> | <strong>Điểm số:</strong> 0.5 điểm</p>
+
+<h3>1. Yêu cầu đề bài</h3>
+<p>Thêm cột header <code>&lt;th&gt;Price Range&lt;/th&gt;</code> vào bảng danh sách nhà hàng, hiển thị khoảng giá trị đã định dạng bằng hàm <code>formatPriceRange(priceMin, priceMax)</code> trong cột tương ứng.</p>
+
+<h3>2. Đoạn mã nguồn (Code)</h3>
+<pre>
+<span class="code-comment">// Trong src/components/RestaurantRow.jsx:</span>
+&lt;td&gt;{formatPriceRange(restaurant.priceMin, restaurant.priceMax)}&lt;/td&gt;
+</pre>
+
+<h3>3. Checklist kiểm duyệt chức năng</h3>
+<ul class="checklist">
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Cột Price Range xuất hiện đầy đủ trong bảng trước cột Actions.</li>
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Giá trị khoảng giá được phân tách rõ ràng dạng <code>Min – Max</code> và có đơn vị tiền tệ <code>₫</code> đi kèm.</li>
+</ul>
+
+<h3>4. Hướng dẫn chụp hình báo cáo</h3>
+<p><strong>Hình UI:</strong> Chụp bảng danh sách nhà hàng tại màn hình chính tập trung vào cột khoảng giá.<br>
+<strong>Hình Test:</strong> Sử dụng kết quả test từ TODO-06 (file <code>RestaurantRow.test.jsx</code> đã kiểm thử cả TODO-07).</p>
+<div class="screenshot-placeholder">[ HÌNH UI: BẢNG DANH SÁCH HIỂN THỊ CỘT KHOẢNG GIÁ ]</div>
+
+
+<!-- TODO 08 -->
+<h2>TODO-08 — Footer lấy dữ liệu từ about.js</h2>
+<p><strong>File triển khai:</strong> <code>src/components/AppFooter.jsx</code> | <strong>Điểm số:</strong> 1.0 điểm</p>
+
+<h3>1. Yêu cầu đề bài</h3>
+<p>Chân trang web phải được render bằng thẻ <code>&lt;footer&gt;</code> chứa logo, bản quyền, phiên bản, tên môn học được import động từ file <code>about.js</code>.</p>
+
+<h3>2. Đoạn mã nguồn (Code)</h3>
+<pre>
+&lt;footer className="border-top mt-4 py-3 text-center text-muted"&gt;
+  &lt;img
+    src={about.logo}
+    alt={about.appName}
+    width="40"
+    height="40"
+    className="mb-2"
+    onError={(e) =&gt; {
+      e.currentTarget.style.display = 'none'
+    }}
+  /&gt;
+  &lt;div&gt;{about.copyright}&lt;/div&gt;
+  &lt;div&gt;{about.version}&lt;/div&gt;
+  &lt;div&gt;{about.course}&lt;/div&gt;
+&lt;/footer&gt;
+</pre>
+
+<h3>3. Checklist kiểm duyệt chức năng</h3>
+<ul class="checklist">
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Phần chân trang hiển thị đầy đủ logo và 3 dòng thông tin bản quyền, phiên bản, môn học.</li>
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Inspect phần tử đảm bảo sử dụng thẻ HTML <code>&lt;footer&gt;</code> chứ không phải thẻ <code>&lt;div&gt;</code>.</li>
+</ul>
+
+<h3>4. Hướng dẫn chụp hình báo cáo</h3>
+<p><strong>Hình UI:</strong> Cuộn xuống dưới cùng của trang web và chụp lại khu vực chân trang (Footer).<br>
+<strong>Hình Test:</strong> Chạy lệnh <code>npm test -- --testPathPattern="AppFooter"</code> và chụp terminal báo <code>PASS</code>.</p>
+<div class="screenshot-placeholder">[ HÌNH UI: CHÂN TRANG FOOTER CỦA ỨNG DỤNG ]</div>
+<div class="screenshot-placeholder">[ HÌNH TEST TERMINAL: APPFOOTER.TEST.JSX PASS ]</div>
+
+
+<!-- TODO 09 -->
+<h2>TODO-09 — Trang chi tiết Category &amp; danh sách nhà hàng</h2>
+<p><strong>File triển khai:</strong> <code>src/pages/CategoryDetail.jsx</code> | <strong>Điểm số:</strong> 1.0 điểm</p>
+
+<h3>1. Yêu cầu đề bài</h3>
+<p>Trang <code>/categories/:id</code> cần gọi song song <code>GET /categories</code> và <code>GET /restaurants</code> bằng <code>Promise.all</code>. Lọc danh sách nhà hàng thuộc danh mục đó. Hiển thị tên danh mục trong Badge, hiển thị bảng danh sách các nhà hàng. Có nút Back to Categories quay về trang quản lý.</p>
+
+<h3>2. Đoạn mã nguồn (Code)</h3>
+<pre>
+useEffect(() =&gt; {
+  <span class="code-keyword">const</span> load = <span class="code-keyword">async</span> () =&gt; {
+    setLoading(<span class="code-keyword">true</span>)
+    setError(<span class="code-keyword">null</span>)
+    <span class="code-keyword">try</span> {
+      <span class="code-keyword">const</span> [categoryResponse, restaurantResponse] = <span class="code-keyword">await</span> Promise.all([
+        axios.get(`${BASE_URL}/categories`),
+        axios.get(`${BASE_URL}/restaurants`),
+      ])
+      <span class="code-keyword">const</span> found = categoryResponse.data.find((c) =&gt; String(c.id) === String(id))
+
+      <span class="code-keyword">if</span> (!found) {
+        setError(<span class="code-string">'Category not found.'</span>)
+        <span class="code-keyword">return</span>
+      }
+
+      setCategory(found)
+      setRestaurants(
+        restaurantResponse.data.filter((r) =&gt; String(r.categoryId) === String(id))
+      )
+    } <span class="code-keyword">catch</span> (e) {
+      setError(e.message)
+    } <span class="code-keyword">finally</span> {
+      setLoading(<span class="code-keyword">false</span>)
+    }
+  }
+  load()
+}, [id])
+</pre>
+
+<h3>3. Checklist kiểm duyệt chức năng</h3>
+<ul class="checklist">
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Tại trang quản lý danh mục, bấm xem chi tiết một danh mục: Trang chi tiết tải lên thành công danh sách nhà hàng tương ứng.</li>
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Có nút Back to Categories giúp quay lại trang quản lý chính.</li>
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Gõ sai ID danh mục trên URL: Xuất hiện Alert đỏ thông báo lỗi "Category not found."</li>
+</ul>
+
+<h3>4. Hướng dẫn chụp hình báo cáo</h3>
+<p><strong>Hình UI:</strong> Bấm xem chi tiết danh mục "Fast Food", chụp lại toàn bộ trang hiển thị danh mục, số lượng nhà hàng, và bảng danh sách nhà hàng tương ứng.<br>
+<strong>Hình Test:</strong> Chạy lệnh <code>npm test -- --testPathPattern="CategoryDetail"</code> và chụp terminal báo <code>PASS</code>.</p>
+<div class="screenshot-placeholder">[ HÌNH UI: TRANG CHI TIẾT DANH MỤC CATEGORY DETAIL ]</div>
+<div class="screenshot-placeholder">[ HÌNH TEST TERMINAL: CATEGORYDETAIL.TEST.JSX PASS ]</div>
+
+
+<!-- TODO 10A & 10B -->
+<h2>TODO-10A &amp; 10B — Thêm &amp; Xóa Category (ManageCategories)</h2>
+<p><strong>File triển khai:</strong> <code>src/pages/ManageCategories.jsx</code> | <strong>Điểm số:</strong> 2.0 điểm</p>
+
+<h3>1. Yêu cầu đề bài</h3>
+<ul>
+  <li><strong>TODO-10A (1.0đ):</strong> Thêm danh mục mới qua Form. Validate tên nhập tối thiểu 3 ký tự. Validate trùng lặp tên không phân biệt hoa/thường (nếu trùng hiện thông báo lỗi chứa "already exists"). Sau khi thêm thành công, reset lại ô nhập.</li>
+  <li><strong>TODO-10B (1.0đ):</strong> Nút Delete trong danh sách danh mục sẽ hiển thị <code>&lt;ModalConfirm&gt;</code> xác nhận xóa với tên danh mục in đậm. Khi đồng ý xóa, gọi DELETE API và cập nhật danh sách hiển thị tức thời.</li>
+</ul>
+
+<h3>2. Đoạn mã nguồn (Code)</h3>
+<pre>
+<span class="code-comment">// TODO-10A: Thêm mới Category</span>
+<span class="code-keyword">const</span> handleAdd = <span class="code-keyword">async</span> (e) =&gt; {
+  e.preventDefault()
+  formDispatch({ type: <span class="code-string">'SET_VALIDATED'</span>, payload: <span class="code-keyword">true</span> })
+
+  <span class="code-keyword">if</span> (!e.currentTarget.checkValidity()) {
+    e.stopPropagation()
+    <span class="code-keyword">return</span>
+  }
+
+  <span class="code-keyword">const</span> name = form.newName.trim()
+  <span class="code-keyword">const</span> error = validateCategoryName(name, categories)
+  <span class="code-keyword">if</span> (error) {
+    formDispatch({ type: <span class="code-string">'SET_UNIQUE_ERROR'</span>, payload: <span class="code-keyword">true</span> })
+    <span class="code-keyword">return</span>
+  }
+
+  <span class="code-keyword">try</span> {
+    <span class="code-keyword">const</span> created = <span class="code-keyword">await</span> addCategory({ name })
+    setCategories((prev) => [...prev, created])
+    formDispatch({ type: <span class="code-string">'RESET'</span> })
+  } <span class="code-keyword">catch</span> (err) {
+    setPageError(err.message)
+  }
+}
+
+<span class="code-comment">// TODO-10B: Handler xác nhận xóa Category</span>
+<span class="code-keyword">const</span> handleDeleteConfirm = <span class="code-keyword">async</span> () =&gt; {
+  <span class="code-keyword">if</span> (!deletingCategory) <span class="code-keyword">return</span>
+
+  <span class="code-keyword">try</span> {
+    <span class="code-keyword">await</span> deleteCategory(deletingCategory.id)
+    setCategories((prev) =&gt; prev.filter((c) =&gt; c.id !== deletingCategory.id))
+    setDeletingCategory(<span class="code-keyword">null</span>)
+  } <span class="code-keyword">catch</span> (err) {
+    setPageError(err.message)
+  }
+}
+</pre>
+
+<h3>3. Checklist kiểm duyệt chức năng</h3>
+<ul class="checklist">
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Nhập tên category trùng lặp (ví dụ: <code>buffet</code>): Kiểm tra thông báo lỗi "Category name already exists." hiển thị màu đỏ dưới input.</li>
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Thêm category hợp lệ (ví dụ: <code>Drinks</code>): Dòng mới xuất hiện trong bảng và ô nhập trống trở lại.</li>
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Bấm Delete ở một dòng category: ModalConfirm xuất hiện và hiển thị tên category cần xóa in đậm.</li>
+  <li class="checklist-item"><span class="checkbox">[ ]</span> Xác nhận xóa trên Modal: Category biến mất hoàn toàn khỏi bảng.</li>
+</ul>
+
+<h3>4. Hướng dẫn chụp hình báo cáo</h3>
+<p><strong>Hình UI (Thêm trùng tên):</strong> Gõ "Buffet" vào ô thêm mới và bấm Add, chụp lại lỗi trùng tên.<br>
+<strong>Hình UI (Modal xóa):</strong> Bấm Delete danh mục "Buffet", chụp lại Modal xác nhận xóa.<br>
+<strong>Hình Test:</strong> Chạy lệnh <code>npm test -- --testPathPattern="ManageCategories"</code> và chụp terminal báo <code>PASS</code>.</p>
+<div class="screenshot-placeholder">[ HÌNH UI: BÁO LỖI TRÙNG TÊN CATEGORY ]</div>
+<div class="screenshot-placeholder">[ HÌNH UI: MODAL XÁC NHẬN XÓA CATEGORY ]</div>
+<div class="screenshot-placeholder">[ HÌNH TEST TERMINAL: MANAGECATEGORIES.TEST.JSX PASS ]</div>
+
+---
+
+<h1>IV. KẾT QUẢ CHẠY TOÀN BỘ KIỂM THỬ (JEST TEST RUNNER)</h1>
+<p>Để hoàn thành báo cáo một cách trọn vẹn, sinh viên cần chạy toàn bộ bộ kiểm thử tự động của hệ thống để chứng minh ứng dụng không có lỗi và đạt điểm tối đa (10/10).</p>
+<p><strong>Cú pháp thực hiện:</strong></p>
+<pre>npm test</pre>
+<p><strong>Kết quả đầu ra kỳ vọng hiển thị trên Terminal:</strong></p>
+<pre>
+PASS  src/__tests__/Login.test.jsx
+PASS  src/__tests__/AppNavbar.test.jsx
+PASS  src/__tests__/AppFooter.test.jsx
+PASS  src/__tests__/RestaurantRow.test.jsx
+PASS  src/__tests__/RestaurantDetail.test.jsx
+PASS  src/__tests__/CategoryDetail.test.jsx
+PASS  src/__tests__/ManageCategories.test.jsx
+
+Test Suites: 7 passed, 7 total
+Tests:       20 passed, 20 total
+Snapshots:   0 total
+Time:        3.887 s
+Ran all test suites.
+</pre>
+<div class="screenshot-placeholder">[ HÌNH TEST TERMINAL: KẾT QUẢ CHẠY TOÀN BỘ 7/7 TEST SUITES ĐỀU PASS ]</div>
+
+<div style="margin-top: 50px; text-align: right;">
+  <p><strong>Sinh viên thực hiện ký tên</strong></p>
+  <br><br>
+  <p><strong>Võ Văn Thanh Phong</strong></p>
+</div>
+
+</body>
+</html>

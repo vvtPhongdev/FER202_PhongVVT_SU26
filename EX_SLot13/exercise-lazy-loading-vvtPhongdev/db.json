@@ -1,0 +1,15 @@
+{
+  "menus": [
+    { "id": 1, "name": "Phở Bò", "price": 65000, "category": "Món nước", "available": true },
+    { "id": 2, "name": "Bún Bò Huế", "price": 70000, "category": "Món nước", "available": true },
+    { "id": 3, "name": "Cơm Sườn", "price": 55000, "category": "Cơm", "available": true },
+    { "id": 4, "name": "Gỏi Cuốn", "price": 45000, "category": "Khai vị", "available": false },
+    { "id": 5, "name": "Chả Giò", "price": 40000, "category": "Khai vị", "available": true }
+  ],
+  "tables": [
+    { "id": 1, "number": 1, "capacity": 4, "status": "available" },
+    { "id": 2, "number": 2, "capacity": 6, "status": "occupied" },
+    { "id": 3, "number": 3, "capacity": 2, "status": "available" },
+    { "id": 4, "number": 4, "capacity": 8, "status": "reserved" }
+  ]
+}

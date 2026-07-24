@@ -1,0 +1,57 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "student01@fpt.edu.vn",
+      "studentCode": "SE170001",
+      "password": "123456",
+      "fullName": "Nguyen Van An"
+    },
+    {
+      "id": "2",
+      "email": "student02@fpt.edu.vn",
+      "studentCode": "SE170002",
+      "password": "123456",
+      "fullName": "Tran Thi Bich"
+    }
+  ],
+  "feedbacks": [
+    {
+      "id": "2",
+      "userId": 2,
+      "course": "FER202",
+      "topic": "React Router",
+      "rating": 4,
+      "comment": "Can them bai tap nested routes.",
+      "date": "2025-10-05"
+    },
+    {
+      "id": "3",
+      "userId": 1,
+      "course": "SDN202",
+      "topic": "Redux Toolkit",
+      "rating": 3,
+      "comment": "Phan slice hoi kho, can them huong dan.",
+      "date": "2025-10-09"
+    },
+    {
+      "id": "4",
+      "userId": 1,
+      "course": "PRJ301",
+      "topic": "JDBC",
+      "rating": "3",
+      "comment": "Khó nhưng hay",
+      "date": "03-02-2026"
+    },
+    {
+      "userId": "1",
+      "course": "FER202",
+      "topic": "React Context",
+      "rating": "5",
+      "comment": "Excellent explanation!",
+      "date": "22-06-2026",
+      "id": "YLlNZUO1blM"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

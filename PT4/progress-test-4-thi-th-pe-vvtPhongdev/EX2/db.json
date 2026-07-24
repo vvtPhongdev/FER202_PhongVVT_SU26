@@ -1,0 +1,134 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin123",
+      "role": "Admin",
+      "fullName": "Cinema Admin"
+    },
+    {
+      "id": "2",
+      "username": "user1",
+      "password": "user123",
+      "role": "User",
+      "fullName": "Nguyen Van A"
+    },
+    {
+      "id": "3",
+      "username": "staff",
+      "password": "staff123",
+      "role": "User",
+      "fullName": "Tran Thi B"
+    }
+  ],
+  "genres": [
+    { "id": "1", "name": "Action" },
+    { "id": "2", "name": "Sci-Fi" },
+    { "id": "3", "name": "Drama" },
+    { "id": "4", "name": "Animation" },
+    { "id": "5", "name": "Comedy" }
+  ],
+  "movies": [
+    {
+      "id": "1",
+      "title": "Mad Max: Fury Road",
+      "director": "George Miller",
+      "studio": "Warner Bros",
+      "genreId": 1,
+      "ticketPrice": 5000,
+      "vipPrice": 50000,
+      "releaseDate": "15/05/2015"
+    },
+    {
+      "id": "2",
+      "title": "Die Hard",
+      "director": "John McTiernan",
+      "studio": "20th Century Fox",
+      "genreId": 1,
+      "ticketPrice": 5000,
+      "vipPrice": 50000,
+      "releaseDate": "15/07/1988"
+    },
+    {
+      "id": "3",
+      "title": "Inception",
+      "director": "Christopher Nolan",
+      "studio": "Legendary Pictures",
+      "genreId": 2,
+      "ticketPrice": 8000,
+      "vipPrice": 80000,
+      "releaseDate": "16/07/2010"
+    },
+    {
+      "id": "4",
+      "title": "Interstellar",
+      "director": "Ridley Scott",
+      "studio": "Scott Free",
+      "genreId": 2,
+      "ticketPrice": 7500,
+      "vipPrice": 75000,
+      "releaseDate": "01/10/2015"
+    },
+    {
+      "id": "5",
+      "title": "The Shawshank Redemption",
+      "director": "Frank Darabont",
+      "studio": "Castle Rock",
+      "genreId": 3,
+      "ticketPrice": 7000,
+      "vipPrice": 70000,
+      "releaseDate": "23/09/1994"
+    },
+    {
+      "id": "6",
+      "title": "Forrest Gump",
+      "director": "Robert Zemeckis",
+      "studio": "Paramount Pictures",
+      "genreId": 3,
+      "ticketPrice": 8000,
+      "vipPrice": 80000,
+      "releaseDate": "06/07/1994"
+    },
+    {
+      "id": "7",
+      "title": "Spirited Away",
+      "director": "Hayao Miyazaki",
+      "studio": "Studio Ghibli",
+      "genreId": 4,
+      "ticketPrice": 10000,
+      "vipPrice": 100000,
+      "releaseDate": "20/07/2001"
+    },
+    {
+      "id": "8",
+      "title": "Toy Story",
+      "director": "John Lasseter",
+      "studio": "Pixar",
+      "genreId": 4,
+      "ticketPrice": 9000,
+      "vipPrice": 90000,
+      "releaseDate": "22/11/1995"
+    },
+    {
+      "id": "9",
+      "title": "The Grand Budapest Hotel",
+      "director": "Wes Anderson",
+      "studio": "Fox Searchlight",
+      "genreId": 5,
+      "ticketPrice": 6000,
+      "vipPrice": 60000,
+      "releaseDate": "28/03/2014"
+    },
+    {
+      "id": "10",
+      "title": "Home Alone",
+      "director": "Chris Columbus",
+      "studio": "Hughes Entertainment",
+      "genreId": 5,
+      "ticketPrice": 6500,
+      "vipPrice": 65000,
+      "releaseDate": "16/11/1990"
+    }
+  ]
+}
